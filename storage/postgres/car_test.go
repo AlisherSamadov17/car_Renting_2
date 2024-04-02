@@ -36,22 +36,22 @@ func TestUpdate(t *testing.T) {
 
 	testCar := models.Car{
 		Id:          "861777c8-a985-4747-a57c-3f5ce5675051",
-		Name:        "TestCar",
-		Brand:       "TestBrand",
-		Model:       "TestModel",
+		Name:        "Car",
+		Brand:       "Brand",
+		Model:       "Model",
 		HoursePower: 200,
-		Colour:      "TestColour",
+		Colour:      "Colour",
 		EngineCap:   2.0,
 	}
 
 	result, err := repo.Update(context.Background(), testCar)
 
 	if err != nil {
-		t.Errorf("Update failed with error: %v", err)
+		t.Errorf("Update error: %v", err)
 	}
 
 	if result != testCar.Id {
-		t.Errorf("Expected ID %v, but got %v", testCar.Id, result)
+		t.Errorf("Expected ID %v, but get %v", testCar.Id, result)
 	}
 }
 
@@ -71,7 +71,7 @@ func TestGetAllCars(t *testing.T) {
 	}
 
 	if len(response.Cars) == 0 {
-		t.Errorf("Expected not empty car list, but got an empty list")
+		t.Errorf("get an empty list")
 	}
 
  fmt.Println("succesfully tested")
@@ -86,11 +86,11 @@ func TestGetByID(t *testing.T) {
 	car, err := repo.GetByID(context.Background(), testID)
 
 	if err != nil {
-		t.Errorf("GetByID failed with error: %v", err)
+		t.Errorf("GetByID error: %v", err)
 	}
 
 	if car.Id != testID {
-		t.Errorf("Expected car ID %s, but got %s", testID, car.Id)
+		t.Errorf("car ID %s, get %s", testID, car.Id)
 	}
 
 }
@@ -103,7 +103,7 @@ func TestDelete(t *testing.T) {
 	err := repo.Delete(context.Background(), testID)
 
 	if err != nil {
-		t.Errorf("Delete failed with error: %v", err)
+		t.Errorf("Delete error: %v", err)
 	}
 
 }

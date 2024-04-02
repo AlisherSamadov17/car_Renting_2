@@ -42,11 +42,11 @@ func TestUpdateCustomer(t *testing.T) {
 	id, err := repo.UpdateCustomer(context.Background(), testCustomer)
 
 	if err != nil {
-		t.Errorf("UpdateCustomer  error: %v", err)
+		t.Errorf("UpdateCustomer error: %v", err)
 	}
 
 	if id != testCustomer.Id {
-		t.Errorf("Expected customer ID %s, but got %s", testCustomer.Id, id)
+		t.Errorf("customer ID %s, but get %s", testCustomer.Id, id)
 	}
 }
 
@@ -66,7 +66,7 @@ func TestGetAllCustomer(t *testing.T) {
 	}
 
 	if len(response.Customers) == 0 {
-		t.Errorf("Expected non-empty customer list, but got an empty list")
+		t.Errorf("get an empty list")
 	}
 
 }
@@ -84,7 +84,7 @@ func TestGetByIDCustomer(t *testing.T) {
 	}
 
 	if customer.Id != testID {
-		t.Errorf("Expected customer ID %s, but got %s", testID, customer.Id)
+		t.Errorf("customer ID %s, but get %s", testID, customer.Id)
 	}
 
 }

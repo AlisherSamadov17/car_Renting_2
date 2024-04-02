@@ -24,11 +24,11 @@ func TestCreateOrder(t *testing.T) {
 	id, err := repo.Create(context.Background(), testOrder)
 
 	if err != nil {
-		t.Errorf("CreateOrder failed with error: %v", err)
+		t.Errorf("CreateOrder error: %v", err)
 	}
 
 	if id == "" {
-		t.Errorf("Expected non-empty ID returned from CreateOrder")
+		t.Errorf("empty ID returned from CreateOrder")
 	}
 
 }
@@ -50,11 +50,11 @@ func TestUpdateOrder(t *testing.T) {
 
 
 	if err != nil {
-		t.Errorf("UpdateOrder failed with error: %v", err)
+		t.Errorf("UpdateOrder error: %v", err)
 	}
 
 	if id != testUpdate.Id {
-		t.Errorf("Expected ID %s, but got %s", testUpdate.Id, id)
+		t.Errorf("Expected ID %s, but get %s", testUpdate.Id, id)
 	}
 }
 
@@ -72,7 +72,7 @@ func TestGetAllOrders(t *testing.T) {
     response, err := repo.GetAll(context.Background(), testRequest)
 
 	if err != nil {
-		t.Errorf("GetAllOrders failed with error: %v", err)
+		t.Errorf("GetAllOrders error: %v", err)
 	}
 
 	if len(response.Orders) == 0 {
